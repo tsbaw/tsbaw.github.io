@@ -27,7 +27,7 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-title">{{ item.Word }}</h5>
-							<p class="card-text">{{ item.Definition }}</p>
+							<p class="card-text">{{ item.Definition.trim().capitalize() }}</p>
 						</div>
 						<div class="btn-group d-flex" role="group" style="width:100%">
 							<a v-bind:href="'https://www.reddit.com/u/' + item.Author" class="btn btn-secondary w-50" target="_blank">{{item.Author}}</a>
@@ -49,6 +49,9 @@
 	<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
 
 	<script type="text/javascript">
+		String.prototype.capitalize = function() {
+			return this.charAt(0).toUpperCase() + this.slice(1);
+		}
 		var app = new Vue({
 			el: '#app',
 			data: {
