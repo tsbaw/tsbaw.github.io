@@ -26,7 +26,7 @@
 				<div v-for="item in words" class="col-md-6 col-lg-4 d-flex" style="margin-bottom:20px;" v-if="item.Word.trim().toLowerCase().startsWith(search.toLowerCase())">
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">{{ item.Word }}</h5>
+							<h5 class="card-title">{{ item.Word.capitalize() }}</h5>
 							<p class="card-text">{{ item.Definition.trim().capitalize() }}</p>
 						</div>
 						<div class="btn-group d-flex" role="group" style="width:100%">
