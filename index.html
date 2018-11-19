@@ -77,6 +77,25 @@
 		var ref = db.ref("Words/");
 
 		ref.on("value", function(snapshot) {
+
+			var temp = snapshot.val();
+
+			var snip = [];
+
+			for (var i in temp) {
+				snip.push(temp[i]);
+			}
+
+			console.log(typeof snip)
+			snip.sort(function(a, b) {
+				var nameA = a.Word.toLowerCase(),
+					nameB = b.Word.toLowerCase()
+				if (nameA < nameB) //sort string ascending
+					return -1
+				if (nameA > nameB)
+					return 1
+				return 0 //default return value (no sorting)
+			});
 			app._data.words = snapshot.val();
 		}, function(errorObject) {
 			console.log("The read failed: " + errorObject.code);
